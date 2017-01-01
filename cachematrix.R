@@ -9,15 +9,15 @@
 ## makeCacheMatrix defines a 'class' which stores an invertable
 ## matrix and it's inverted value. 
 
-makeCacheMatrix <- function(x = matrix()) {
-  i <- NULL
-  set <- function(y) {
-    x <<- y
-    i <<- NULL
+makeCacheMatrix <- function(original = matrix()) {
+  inverted <- NULL
+  set <- function(m) {
+    original <<- m
+    inverted <<- NULL
   }
-  get <- function() x
-  setinverted <- function(inverted) i <<- inverted
-  getinverted <- function() i
+  get <- function() original
+  setinverted <- function(i) inverted <<- i
+  getinverted <- function() inverted
   list(set = set, get = get, setinverted = setinverted, getinverted = getinverted)
 }
 
@@ -26,15 +26,15 @@ makeCacheMatrix <- function(x = matrix()) {
 ## cachedMatrix object
 
 cacheSolve <- function(x, ...) {
-  i <- x$getinverted()
-  if(!is.null(i)) {
-    message("getting cached data")
-    return(i)
+  inverted <- x$getinverted()
+  if(!is.null(inverted)) {
+    message("Getting cached inverted matrix")
+    return(inverted)
   }
-  data <- x$get()
-  i <- solve(data, ...)
-  x$setinverted(i)
-  i
+  original <- x$get()
+  inverted <- solve(original, ...)
+  x$setinverted(inverted)
+  inverted
 }
 
 
@@ -68,6 +68,6 @@ testProgrammingAssignment2 <- function() {
   print(sB)
 }
 
-# testProgrammingAssignment2()
+## testProgrammingAssignment2()
 
 
