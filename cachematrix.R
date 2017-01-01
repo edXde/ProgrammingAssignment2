@@ -1,6 +1,7 @@
 ## ###############################################################
 ## The following functions implement a means to reduce the cost of 
-## computing the inverse of a large unchanging matrix.
+## computing the inverse of a large unchanging matrix. I've also
+## included a simple test function to exercise the code.
 ## ###############################################################
 
 ## makeCacheMatrix defines a 'class' which stores an invertable
