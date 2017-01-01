@@ -1,7 +1,9 @@
 ## ###############################################################
 ## The following functions implement a means to reduce the cost of 
-## computing the inverse of a large unchanging matrix. I've also
-## included a simple test function to exercise the code.
+## computing the inverse of a large unchanging matrix. This is 
+## based heavily on the example given in the programming 
+## assignment instructions. I've also included a simple test 
+## function to exercise the code.
 ## ###############################################################
 
 ## makeCacheMatrix defines a 'class' which stores an invertable
@@ -24,7 +26,6 @@ makeCacheMatrix <- function(x = matrix()) {
 ## cachedMatrix object
 
 cacheSolve <- function(x, ...) {
-  ## Return a matrix that is the inverse of 'x'
   i <- x$getinverted()
   if(!is.null(i)) {
     message("getting cached data")
